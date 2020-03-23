@@ -16,37 +16,40 @@ int main() {
 	for (ll i = 0; i< n; i++) {
 		cin >> str[i];
 	}
-	cout << "-------------" << endl;
+
 	sort(str.begin(),str.end());
-	int count =0;
-	int maxCount =0;
-	for (ll i = 0; i<n-1;i++) {
-		if (str[i] == str[i + 1]) {
+	int count =1;
+	int maxCount =1;
+	for (ll i = 1; i<n;i++) {
+		if (str[i] == str[i-1]) {
 			count++;
-		}
-		else {
-			if (maxCount < count) {
+			if (maxCount <= count) {
 				maxCount = count;
 			}
-			count =1;
 		}
-		if (i == n-2 && count > maxCount) {
-			count ++;
-			maxCount = count;
+		else {
+			count =1;
 		}
 	}
 
-	count =0;
-	for (ll i = 0; i<n-1;i++) {
-		if (str[i] == str[i + 1]) count++;
-		else {
+	count =1;
+	cout << "----------------" << endl;
+	for (ll i = 0; i< n; i++) {
+		cout << i << ": "<< str[i] << endl;
+	}
+	cout << "----------------" << endl;
+	cout << "maxCount" << maxCount <<endl;
+	for (ll i = 1; i<n;i++) {
+		if (str[i] == str[i -1]) {count++;
 			if (maxCount == count) {
 				cout << str[i] << endl;
 			}
-			count =1;
 		}
-		if (i == n-2 && count == maxCount -1) {
-			cout << str[i+1] << endl;
+		else {
+			count =1;
+			if (maxCount == count) {
+				cout << str[i] << endl;
+			}
 		}
 	}
 
