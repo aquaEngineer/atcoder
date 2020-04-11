@@ -12,18 +12,21 @@ using ll = long long;
 int main() {
 	int n;
 	cin >> n;
-	vector <int> a(n);
-	for(int i=0;i<n;i++) cin >> a[i];
-	int count =0;
-	for(int i=0;i<n;i++) {
-		if (a[i] != i+1) {
+	vector <int> p(n);
+	for (int i =0;i<n;i++) cin >> p[i];
+
+	int count = 0;
+	for (int i =0;i<n;i++) {
+		if(p[i] != i +1) {
 			count++;
 		}
 	}
-	if (count <=2) {
-		cout << "YES" << endl;
+	if (count >2) {
+		cout << "NO" <<endl;
+		return 0;
 	} else {
-		cout << "NO" << endl;
+		cout << "YES" <<endl;
+		return 0;
 	}
 	return 0;
 }
