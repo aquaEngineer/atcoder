@@ -17,8 +17,10 @@ using ll = long long;
 /* 小文字を大文字に変換 toupper*/
  
 int main () {
-	int w,h;
-	cin >> w >> h;
-	if ((double)w/h == (double)16/9) cout << "16:9" << endl;
-	else cout << "4:3" << endl;
+	int a,b,c;
+	cin >> a >> b >>c;
+	if (a == b && b== c) {cout << a << endl; return 0; }
+	if (a == b) cout << c << endl;
+	if (b == c) cout << a << endl;
+	if (a == c) cout << b << endl;
 }
