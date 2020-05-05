@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -14,26 +13,25 @@ using ll = long long;
 #define NO cout << "NO" << endl;
 #define yes cout << "Yes" << endl;
 #define no cout << "No" << endl;
-/* map<string,int> */
 /* 大文字を小文字に変換 tolower*/
 /* 小文字を大文字に変換 toupper*/
-/* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main () {
-	int x;
-	cin >> x;
-	while (1) {
-		bool flag = true;
-		for (int i =2; i< x; i++) {
-			if (x % i == 0)  {
-				flag = false;
-			}
-		}
-		if (flag) {
-			cout << x <<endl;
-			return 0;
-		} else {
-			x++;
+	int n,k;
+	cin >> n >> k;
+	vector <int> ans(n,0)l;
+	for(int i =0; i< k;i++) {
+		int d;
+		cin >> d;
+		int a[d];
+		for(int j =0; j <d ; j ++) {
+			cin >> a[i];
+			ans[a[i]] = 1;
 		}
 	}
+	int count =0;
+	for(int i =0;i < n; i++) {
+		if(ans[i] ==1) count++;
+	}
+	cout << count <<endl;
 }
