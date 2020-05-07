@@ -7,6 +7,9 @@
 #include <queue>
 #include <map>
 #include <utility>
+#include <numeric>
+#include <limits>
+#include <type_traits>
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)

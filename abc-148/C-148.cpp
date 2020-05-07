@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -7,6 +6,9 @@
 #include <queue>
 #include <map>
 #include <utility>
+#include <numeric>
+#include <limits>
+#include <type_traits>
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
@@ -22,16 +24,7 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main () {
-	int n;
-	cin >> n;
-	vector <char> s(n);
-	vector <char> a;
-	rep(i,n) {cin >> s[i];}
-	a.push_back(s[0]);
-	for(int i =1; i<n;i++) {
-		if (s[i] != s[i-1]) {
-			a.push_back(s[i]);
-		}
-	}
-	cout << a.size() << endl;
+    int a,b;
+    cin >> a >>b;
+    cout << lcm(a,b) << endl;
 }
