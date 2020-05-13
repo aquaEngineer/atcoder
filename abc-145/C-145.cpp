@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -7,6 +6,7 @@
 #include <queue>
 #include <map>
 #include <utility>
+#include <iomanip>  // std::setprecision()
 using namespace std;
 using ll = long long;
 #define rep(i,a,b) for(int i=(a); i<(b); i++)
@@ -22,8 +22,25 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main () {
-	int n,d;
-	cin >> n >> d;
-	int ans = (double)n / (2*d);
-	cout << ans << endl;
+    int n;
+    cin >> n;
+    vector <int> x(n);
+    vector <int> y(n);
+    rep(i,0,n) {
+        cin >> x[i] >> y[i];
+    }
+    double sum = 0;
+    rep (i, 0,n) {
+        rep(j, 0, n) {
+            if (i ==j) continue;
+            int b= pow(x[i]-x[j],2)+ pow(y[i]-y[j],2);
+            sum += sqrt(b);
+        }
+    }
+    int c= 1;
+    rep (i,1,n+1){
+        c *=i;
+    };
+    cout << setprecision(14) << (sum / n) << endl;
+
 }
