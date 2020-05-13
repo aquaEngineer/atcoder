@@ -21,12 +21,14 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 小文字を大文字に変換 toupper*/
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
-int main() {
-	int l;
-	double a;
-	cin >> l;
-	a = (double)l/3;
-	cout << setprecision(10) << pow(a,3) <<endl;
-	return 0;
+int main () {
+    ll n;
+    cin >> n;
+    ll mi = n;
+    for(ll i = 1; pow(i,2) <= n; i++) {
+        if (n %i == 0) {
+            mi = min(mi, i + n/i-2);
+        }
+    }
+    cout << mi << endl;
 }
-
