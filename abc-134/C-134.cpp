@@ -6,9 +6,10 @@
 #include <queue>
 #include <map>
 #include <utility>
+#include <iomanip>  // std::setprecision()
 using namespace std;
 using ll = long long;
-#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define rep(i,a,b) for(int i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
 #define NO cout << "NO" << endl;
 #define yes cout << "Yes" << endl;
@@ -20,12 +21,21 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 小文字を大文字に変換 toupper*/
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
-int main () {
-	int n,d;
-	cin >> n >> d;
-	double ans = (double)n / (2*d+1);
-    if (ans > (int)ans) {
-        ans++;
+int main() {
+    ll n;
+    cin >> n;
+    vector <ll> a(n);
+    vector <ll> b(n);
+    rep(i,0,n){
+        cin >> a[i];
+		b[i] = a[i];
     }
-	cout << (int)ans << endl;
+	sort(b.begin(), b.end());
+	rep(i,0,n){
+		if (a[i] == b[n-1]) {
+			cout << b[n-2] <<endl;
+		} else {
+			cout << b[n-1] << endl;
+		}
+	}
 }
