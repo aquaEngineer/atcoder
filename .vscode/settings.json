@@ -4,6 +4,9 @@
         "random": "cpp",
         "utility": "cpp",
         "iomanip": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "map": "cpp",
+        "queue": "cpp",
+        "string": "cpp"
     }
 }
