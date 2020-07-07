@@ -23,16 +23,24 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main() {
-    int n,k;
-    cin >> n >> k;
-    vector <int> p(n);
-    for(int i =0;i<n;i++) {
-        cin >> p[i];
+    int n;
+    cin >> n;
+    int div2 =0;
+    int div4 =0;
+    int tmp;
+    rep(i,0,n) {
+        cin >> tmp;
+        if (tmp %4 == 0) {
+            div4++;
+        }
+        else if (tmp %2 ==0) div2++;
     }
-    sort(p.begin(), p.end());
-    int ans =0;
-    for (int i = 0; i < k;i++) {
-        ans += p[i];
+    if (div4 >= n / 2) {
+        cout << "Yes" << endl;
+    } else if (div2 >= n - div4 * 2) {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
-    cout << ans << endl;
+
 }

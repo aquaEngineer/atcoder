@@ -23,16 +23,19 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main() {
-    int n,k;
-    cin >> n >> k;
-    vector <int> p(n);
-    for(int i =0;i<n;i++) {
-        cin >> p[i];
+    ll n;
+    cin >> n;
+    vector <ll> a(n);
+    map <ll, bool> b;
+    rep(i, 0,n) {
+        cin >> a[i];
+        auto v = b.find(a[i]);
+        if (v != b.end()) {
+            b.erase(v);
+        } else {
+            b[a[i]] = true;
+        }
     }
-    sort(p.begin(), p.end());
-    int ans =0;
-    for (int i = 0; i < k;i++) {
-        ans += p[i];
-    }
+    ll ans = b.size();
     cout << ans << endl;
 }
