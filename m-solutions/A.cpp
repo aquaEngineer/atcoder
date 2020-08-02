@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -24,19 +23,14 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main() {
-	int n;
-	cin >> n;
-	vector <ll> a(100*100*100,0);
-	for(int x =1;x <= 100; x++) {
-		for(int y =1;y<=100;y++) {
-			for(int z =1;z<=100;z++) {
-				int tmp = x * x + y*y+z*z + x*y + y*z + z*x;
-				a[tmp]++;
-
-			}
-		}
-	}
-	for(int i =1;i <=n;i++) {
-		cout << a[i] << endl;
-	}
+    int a;
+    cin >> a;
+    if (a >= 400 && a <=599) cout << 8 << endl;
+    else if (a >= 600 && a <=799) cout << 7 << endl;
+    else if (a >= 800 && a <=999) cout << 6 << endl;
+    else if (a >= 1000 && a <=1199) cout << 5 << endl;
+    else if (a >= 1200 && a <=1399) cout << 4 << endl;
+    else if (a >= 1400 && a <=1599) cout << 3 << endl;
+    else if (a >= 1600 && a <=1799) cout << 2 << endl;
+    else if (a >= 1800 && a <=1999) cout << 1 << endl;
 }

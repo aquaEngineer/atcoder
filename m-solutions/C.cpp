@@ -24,19 +24,17 @@ ll lcm(ll a, ll b){return a * b / gcd(a, b);}
 /* 辞書順 next_permutation(a.begin(),a.end()) */
  
 int main() {
-	int n;
-	cin >> n;
-	vector <ll> a(100*100*100,0);
-	for(int x =1;x <= 100; x++) {
-		for(int y =1;y<=100;y++) {
-			for(int z =1;z<=100;z++) {
-				int tmp = x * x + y*y+z*z + x*y + y*z + z*x;
-				a[tmp]++;
-
-			}
-		}
-	}
-	for(int i =1;i <=n;i++) {
-		cout << a[i] << endl;
-	}
+    int n,k;
+    cin >> n >> k;
+    vector <ll> a(n+1);
+    for(ll i =1;i <=n ;i++) {
+        cin >> a[i];
+    }
+    for (ll i = k+1; i<= n; i++) {
+        if (a[i] > a[i-k]) {
+            cout << "Yes" << endl;
+        } else {
+            cout << "No" << endl;
+        }
+    }
 }
