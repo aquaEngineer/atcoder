@@ -17,12 +17,13 @@ using ll = long long;
 /* 小文字を大文字に変換 toupper*/
  
 int main () {
-	ll a,b,n;
-	cin >> a >> b >>n;
-	ll ma = 0;
-	int c = n %2;
-	for(ll i =0; i <= n/2 ; i++) {
-		ma = max (ma, ((a * i) / b) -(a * (i / b)));
+	ll a, b, n;
+	cin >> a >> b >> n;
+	ll x  =0;
+	if (b-1 < n) {
+		x = b-1;
+	} else {
+		x = n;
 	}
-	cout << ma*2 +c << endl;
+	cout << (ll) ((a*x) / b) - (a * (ll) (x/b)) << endl;
 }

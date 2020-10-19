@@ -11,6 +11,13 @@
         "tuple": "cpp",
         "type_traits": "cpp",
         "algorithm": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "*.tcc": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "functional": "cpp",
+        "future": "cpp",
+        "typeinfo": "cpp",
+        "ostream": "cpp"
     }
 }
