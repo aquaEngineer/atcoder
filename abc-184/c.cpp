@@ -1,8 +1,8 @@
 #include <bits/stdc++.h> 
-#include <atcoder/all>
+// #include <atcoder/all>
 
 using namespace std;
-using namespace atcoder;
+// using namespace atcoder;
 using ll = long long;
 #define rep(i,a,b) for(ll i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
@@ -18,6 +18,7 @@ const int mod = 1000000007;
 /* 大文字を小文字に変換 tolower*/
 /* 小文字を大文字に変換 toupper*/
 /* 辞書順 next_permutation(a.begin(),a.end()) */
+/* 桁数std::setprecision(2)*/
 void printVec(std::vector<char> &vec) {
   std::cout << "";
   for (auto it = vec.begin(); it != vec.end(); ++it) {
@@ -26,24 +27,16 @@ void printVec(std::vector<char> &vec) {
   std::cout << std::endl;
 }
 
+int solve() {
+    ll x1,y1,x2,y2;
+    cin >> x1 >> y1 >> x2 >>y2;
+    if (x1 == x2 && y1 == y2) return 0;
+    else if (x1 + y1 == x2 + y2) return 1;
+    else if (x1-y1 == x2 - y2)  return 1;
+    else if (abs(x1 - x2) + abs (y1 - y2) <= 3) return 1;
+    else if ()
+}
 
 int main() {
-    int n;
-    int m;
-    cin >> n >> m;
-    vector <pair <int,int>> a(m);
-    dsu d;
-    
-    
-    rep(i,0,m) {
-        pair <int, int > x;
-        cin >> x.first >> x.second;
-        a.push_back(x);
-        d.merge(x.first, x.second);
-    }
-    if (d.groups().size() == 1) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    cout << solve() << endl;
 }

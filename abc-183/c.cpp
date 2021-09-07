@@ -1,8 +1,8 @@
 #include <bits/stdc++.h> 
-#include <atcoder/all>
+// #include <atcoder/all>
 
 using namespace std;
-using namespace atcoder;
+// using namespace atcoder;
 using ll = long long;
 #define rep(i,a,b) for(ll i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
@@ -18,6 +18,7 @@ const int mod = 1000000007;
 /* 大文字を小文字に変換 tolower*/
 /* 小文字を大文字に変換 toupper*/
 /* 辞書順 next_permutation(a.begin(),a.end()) */
+/* 桁数std::setprecision(2)*/
 void printVec(std::vector<char> &vec) {
   std::cout << "";
   for (auto it = vec.begin(); it != vec.end(); ++it) {
@@ -29,21 +30,28 @@ void printVec(std::vector<char> &vec) {
 
 int main() {
     int n;
-    int m;
-    cin >> n >> m;
-    vector <pair <int,int>> a(m);
-    dsu d;
-    
-    
-    rep(i,0,m) {
-        pair <int, int > x;
-        cin >> x.first >> x.second;
-        a.push_back(x);
-        d.merge(x.first, x.second);
+    cin >>n;
+    ll k;
+    cin >> k;
+    vector <vector <ll>> a(n, vector<ll>(n));
+    int v[n];
+    for(int i = 0; i <n ; i++) {
+        v[i] = i;
+        for(int j = 0; j <n ;j++) {
+            cin >> a[i][j];
+        }
     }
-    if (d.groups().size() == 1) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    int result = 0;
+
+    do {
+        if (v[0] != 0) continue;
+        ll sum =0;
+        for (int i = 0; i<n -1;i++) {
+            sum += a[v[i]][v[i+1]];
+        }
+        sum += a[v[n-1]][v[0]];
+        if (sum == k) result++;
+   } while (next_permutation(v,v+n));
+
+   cout << result << endl;
 }

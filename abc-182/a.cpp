@@ -1,8 +1,8 @@
 #include <bits/stdc++.h> 
-#include <atcoder/all>
+// #include <atcoder/all>
 
 using namespace std;
-using namespace atcoder;
+// using namespace atcoder;
 using ll = long long;
 #define rep(i,a,b) for(ll i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
@@ -28,22 +28,14 @@ void printVec(std::vector<char> &vec) {
 
 
 int main() {
-    int n;
-    int m;
-    cin >> n >> m;
-    vector <pair <int,int>> a(m);
-    dsu d;
-    
-    
-    rep(i,0,m) {
-        pair <int, int > x;
-        cin >> x.first >> x.second;
-        a.push_back(x);
-        d.merge(x.first, x.second);
-    }
-    if (d.groups().size() == 1) {
-        cout << "Yes" << endl;
+    int a,b;
+    cin >> a >> b;
+    int x;
+    x = 2 * a + 100;
+    if (x -b < 0 ) {
+        cout << 0 << endl;
     } else {
-        cout << "No" << endl;
+        cout << x - b << endl;
     }
+    
 }

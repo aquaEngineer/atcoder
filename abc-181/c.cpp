@@ -1,8 +1,8 @@
 #include <bits/stdc++.h> 
-#include <atcoder/all>
+// #include <atcoder/all>
 
 using namespace std;
-using namespace atcoder;
+// using namespace atcoder;
 using ll = long long;
 #define rep(i,a,b) for(ll i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
@@ -29,21 +29,29 @@ void printVec(std::vector<char> &vec) {
 
 int main() {
     int n;
-    int m;
-    cin >> n >> m;
-    vector <pair <int,int>> a(m);
-    dsu d;
-    
-    
-    rep(i,0,m) {
-        pair <int, int > x;
-        cin >> x.first >> x.second;
-        a.push_back(x);
-        d.merge(x.first, x.second);
+    cin >> n;
+    vector <pair<int,int>> a(n);
+    for(int i = 0;i <n; i++) {
+        cin >> a[i].first >> a[i].second;
     }
-    if (d.groups().size() == 1) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+
+    for (int i = 0; i < n; i++) {
+        for(int j = 0; j < n ;j++) {
+            for(int k =0; k< n ;k++) {
+                if (i == j || j == k || i == k) {
+                    continue;
+                }
+                int dx1 = a[i].first - a[j].first;
+                int dx2 = a[i].first - a[k].first;
+                int dy1 = a[i].second - a[j].second;
+                int dy2 = a[i].second - a[k].second;
+                if (dx1 * dy2 == dx2 * dy1) {
+                    cout << "Yes" << endl;
+                    return 0;
+                }
+            }
+        }
     }
+    cout << "No" << endl;
+    return 0;
 }

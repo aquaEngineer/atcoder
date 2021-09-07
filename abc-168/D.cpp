@@ -1,8 +1,8 @@
 #include <bits/stdc++.h> 
-#include <atcoder/all>
+// #include <atcoder/all>
 
 using namespace std;
-using namespace atcoder;
+// using namespace atcoder;
 using ll = long long;
 #define rep(i,a,b) for(ll i=(a); i<(b); i++)
 #define YES cout << "YES" << endl;
@@ -26,24 +26,40 @@ void printVec(std::vector<char> &vec) {
   std::cout << std::endl;
 }
 
-
+const int INF = 1001001001;
 int main() {
     int n;
     int m;
     cin >> n >> m;
-    vector <pair <int,int>> a(m);
-    dsu d;
-    
-    
+    vector <int> to[100005];
+    int a,b;
     rep(i,0,m) {
-        pair <int, int > x;
-        cin >> x.first >> x.second;
-        a.push_back(x);
-        d.merge(x.first, x.second);
+        cin >> a >> b;
+        --a; --b;
+        to[a].push_back(b);
+        to[b].push_back(a);
     }
-    if (d.groups().size() == 1) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
+    queue<int> q;
+    vector <int> dist(n, INF);
+    vector <int> pre(n, -1);
+    dist[0] = 0;
+    q.push(0);
+    while (!q.empty()) {
+        int v = q.front();
+        q.pop();
+        for (int u : to[v]) {
+            if (dist[u] != INF) continue;
+            dist[u] = dist[v] + 1;
+            pre[u] = v;
+            q.push(u);
+        }
     }
+    cout << "Yes" << endl;
+    rep(i,0,n) {
+        if (i == 0) continue;
+        int ans = pre[i];
+        ++ans;
+        cout << ans << endl;
+    }
+    return 0;
 }
