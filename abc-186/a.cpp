@@ -29,28 +29,7 @@ void printVec(std::vector<char> &vec) {
 
 
 int main() {
-    int n,m;
-    cin >> n >> m;
-    vector <int>a(m);
-    for(int i = 0;i<m;i++) {
-        cin >> a[i];
-    }
-    a.push_back(n+1);
-    sort(a.begin(),a.end());
-    int cur =1;
-    int ans =0;
-    int w = n;
-    vector <int>s;
-    for(int i=0; i < a.size(); i++) {
-        if (a[i]-cur != 0) {
-            w = min(w,a[i]-cur);
-            s.push_back(a[i]-cur);
-        }
-        cur = a[i]+1;
-    }
-    for(int i = 0; i < s.size(); ++i) {
-        ans += (s[i] + (w -1)) / w;
-    }
-    cout << ans << endl;
-
+    int n,w;
+    cin >> n >> w;
+    cout << n/w <<endl;
 }

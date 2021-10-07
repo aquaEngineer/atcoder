@@ -29,28 +29,27 @@ void printVec(std::vector<char> &vec) {
 
 
 int main() {
-    int n,m;
-    cin >> n >> m;
-    vector <int>a(m);
-    for(int i = 0;i<m;i++) {
-        cin >> a[i];
+    int n;
+    cin >> n;
+    pair <ll,ll> b;
+    vector <pair <ll,ll>> a(n);
+    ll c = 0;
+    vector <ll> d(n);
+    for(int i=0; i <n; ++i) {
+        cin >> b.first >> b.second;
+        a[i] = b;
+        c += b.first;
+        d[i] = b.first * 2 + b.second;
     }
-    a.push_back(n+1);
-    sort(a.begin(),a.end());
-    int cur =1;
-    int ans =0;
-    int w = n;
-    vector <int>s;
-    for(int i=0; i < a.size(); i++) {
-        if (a[i]-cur != 0) {
-            w = min(w,a[i]-cur);
-            s.push_back(a[i]-cur);
+    sort(d.begin(), d.end(), greater <ll> {});
+    ll e=0;
+    int ans = 0;
+    for (int i = 0; i < d.size(); ++i) {
+        if (c -e < 0) {
+            break;
         }
-        cur = a[i]+1;
-    }
-    for(int i = 0; i < s.size(); ++i) {
-        ans += (s[i] + (w -1)) / w;
+        e += d[i];
+        ans++;
     }
     cout << ans << endl;
-
 }

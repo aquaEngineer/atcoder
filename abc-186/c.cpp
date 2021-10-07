@@ -27,30 +27,24 @@ void printVec(std::vector<char> &vec) {
   std::cout << std::endl;
 }
 
-
-int main() {
-    int n,m;
-    cin >> n >> m;
-    vector <int>a(m);
-    for(int i = 0;i<m;i++) {
-        cin >> a[i];
-    }
-    a.push_back(n+1);
-    sort(a.begin(),a.end());
-    int cur =1;
-    int ans =0;
-    int w = n;
-    vector <int>s;
-    for(int i=0; i < a.size(); i++) {
-        if (a[i]-cur != 0) {
-            w = min(w,a[i]-cur);
-            s.push_back(a[i]-cur);
+bool checkValue(int a,int b) {
+    int c;
+    while (1) {
+        c = a %b;
+        if (c == 7) {
+            return false;
         }
-        cur = a[i]+1;
+        a /=b;
+        if (a ==0) break;
     }
-    for(int i = 0; i < s.size(); ++i) {
-        ans += (s[i] + (w -1)) / w;
+    return true;
+}
+int main() {
+    int n;
+    cin >> n;
+    int ans = 0;
+    for (int i = 1; i <= n; ++i) {
+        if (checkValue(i,10) && checkValue(i,8)) ans++;
     }
     cout << ans << endl;
-
 }
