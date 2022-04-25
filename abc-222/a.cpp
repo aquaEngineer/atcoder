@@ -30,24 +30,17 @@ void printVec(std::vector<char> &vec) {
 
 int main() {
     int n;
-    cin >> n;
-    vector <int> a(n);
-    vector <int> b(n);
-    for (int i =0; i< n; ++i) {
-        cin >> a[i];
+    cin >>n;
+    if (n < 1000 && n >= 100) {
+        cout << '0' << n << endl;
+
+    } else if (n < 100 && n >= 10) {
+        cout << "00" << n << endl;
+
+    } else if (n < 10 && n >= 0) {
+        cout << "000" << n << endl;
+    } else {
+        cout << n << endl;
     }
 
-    for (int i =0; i< n; ++i) {
-        cin >> b[i];
-    }
-    int result = 0;
-    for (int i =0; i< n; ++i) {
-        result += a[i] * b[i];
-    }
-    if (result == 0) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-    
 }

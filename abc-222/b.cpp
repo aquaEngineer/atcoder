@@ -30,24 +30,15 @@ void printVec(std::vector<char> &vec) {
 
 int main() {
     int n;
-    cin >> n;
+    int p;;
+    cin >> n >>p;
     vector <int> a(n);
-    vector <int> b(n);
+    int ans = 0;
     for (int i =0; i< n; ++i) {
         cin >> a[i];
+        if (a[i] < p) {
+            ans++;
+        }
     }
-
-    for (int i =0; i< n; ++i) {
-        cin >> b[i];
-    }
-    int result = 0;
-    for (int i =0; i< n; ++i) {
-        result += a[i] * b[i];
-    }
-    if (result == 0) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-    
+    cout << ans << endl;
 }

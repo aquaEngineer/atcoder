@@ -31,23 +31,31 @@ void printVec(std::vector<char> &vec) {
 int main() {
     int n;
     cin >> n;
-    vector <int> a(n);
-    vector <int> b(n);
-    for (int i =0; i< n; ++i) {
-        cin >> a[i];
+    vector <int> a(n), b(n);
+    int sum = 0;
+    for(int i = 0; i < n ; i++) {
+      cin >> a[i] >> b[i];
+      sum += a[i];
     }
-
-    for (int i =0; i< n; ++i) {
-        cin >> b[i];
+    double li = 0;
+    double ri = n-1;
+    double lx = 0, rx = 0;
+    double ans = 0;
+    while(li < ri) {
+      double lt = (double) (a[li] -lx) / b[li];
+      double rt = (double)(a[ri] -rx) / b[ri];
+      if (lt < rt) {
+        ans += b[li] * lt;
+        lx = 0;
+        rx += b[ri] * lt;
+        li++;
+      } else {
+        ans += b[li] * rt;
+        lx += b[li] * rt;
+        rx = 0;
+        ri--;
+      }
     }
-    int result = 0;
-    for (int i =0; i< n; ++i) {
-        result += a[i] * b[i];
-    }
-    if (result == 0) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
-    
+    ans += (double)(a[li] - lx - rx)/ 2;
+    cout << setprecision(10) << ans << endl;
 }

@@ -27,27 +27,41 @@ void printVec(std::vector<char> &vec) {
   std::cout << std::endl;
 }
 
+void print(vector<char> c) {
+    for (int i = 0 ; i < c.size(); i++) {
+        cout << c[i];
+    }
+    cout << endl;
+}
+string shift(string a) {
+    char b;
+    b = a[0];
+    for(int i = 1 ; i < a.size() ; i++) {
+        a[i-1] = a[i];
+    }
+    a[a.size()-1] = b;
+    return a;
+}
 
 int main() {
-    int n;
-    cin >> n;
-    vector <int> a(n);
-    vector <int> b(n);
-    for (int i =0; i< n; ++i) {
-        cin >> a[i];
-    }
-
-    for (int i =0; i< n; ++i) {
-        cin >> b[i];
-    }
-    int result = 0;
-    for (int i =0; i< n; ++i) {
-        result += a[i] * b[i];
-    }
-    if (result == 0) {
-        cout << "Yes" << endl;
-    } else {
-        cout << "No" << endl;
-    }
+    string a;
+    cin >> a;
+    string c;
+    string mi;
+    string ma;
+    mi = a;
+    ma = a;
     
+    c = a;
+    for(int i = 0; i <a.size(); i++) {
+        c = shift(c);
+        if (mi > c) {
+            mi = c;
+        }
+        if (ma <c) {
+            ma = c;
+        }
+    }
+    cout << mi <<endl;
+    cout << ma <<endl;
 }
